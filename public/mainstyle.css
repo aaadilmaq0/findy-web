@@ -25,19 +25,43 @@ header{
   margin-right: auto;
 }
 .dt{
-  border-radius: 20px;
   width: 100%
-  margin: auto;
+  height:auto;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
   padding: 5px;
 }
 .destinations div{
-  margin-top: 15px;
-  border-radius:10%;
   overflow:hidden;
 }
 .wrapper .row:last-child{
   margin-bottom: 15px;
 }
-a:hover{
-  visibility: hidden;
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 95%;
+  height: auto;
+  margin-top: 15px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
+a:hover .overlay {
+  opacity: .9;
+}
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
 }
