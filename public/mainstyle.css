@@ -17,10 +17,13 @@ header{
   margin-top:50px;
   background-color: #101010;
 }
+.athensdiv{
+  margin-top: 20px;
+}
 #athensimg{
-  width: auto;
-  max-height: 94vh;
-  margin-top: 25px;
+  width: 100%;
+  height: auto;
+  max-height: 95vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -38,15 +41,21 @@ header{
 .wrapper .row:last-child{
   margin-bottom: 15px;
 }
+.athens div a .overlay{
+  max-height: 94vh;
+  width: 100%;
+}
+.destinations div a .overlay{
+  margin-top: 15px;
+  width: 95%;
+}
 .overlay {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-  width: 95%;
-  height: auto;
-  margin-top: 15px;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
   opacity: 0;
