@@ -47,7 +47,7 @@ header{
 }
 .destinations div a .overlay{
   margin-top: 15px;
-  width: 95%;
+  width: 97%;
 }
 .overlay {
   position: absolute;
@@ -60,12 +60,14 @@ header{
   margin-right: auto;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: #101010;
 }
 a:hover .overlay {
-  opacity: .9;
+  opacity: .8;
 }
 .text {
+  width: 100%;
+  text-align: center;
   color: white;
   font-size: 20px;
   position: absolute;
