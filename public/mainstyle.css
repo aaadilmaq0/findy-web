@@ -1,3 +1,6 @@
+body{
+  background-color: black;
+}
 header{
   z-index: 1;
   height: 50px;
@@ -6,12 +9,15 @@ header{
   top: 0px;
   right: 0px;
   left: 0px;
+  opacity: .8;
 }
-.navbar-brand strong{
-  color: white;
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
 }
-.navbar-brand strong:hover{
-  color:red;
+.navbar .navbar-collapse {
+  text-align: center;
 }
 .wrapper{
   margin-top:50px;

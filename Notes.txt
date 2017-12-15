@@ -1,0 +1,13 @@
+Things to show on menu o
+
+You can disable the configuration validator by adding:
+1
+
+define( 'WPCF7_VALIDATE_CONFIGURATION', false );
+
+to your wp-config.php, or adding:
+1
+
+add_filter( 'wpcf7_validate_configuration', '__return_false' );
+
+to your theme’s functions.php.
