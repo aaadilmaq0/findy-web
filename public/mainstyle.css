@@ -23,6 +23,17 @@ header{
   margin-top:50px;
   background-color: #101010;
 }
+#clickme{
+  
+}
+#logo{
+  width: 100vw;
+  height: 100vh;
+  background-color: #101010;
+}
+#logoimg{
+  margin: auto;
+}
 .athensdiv{
   margin-top: 20px;
 }
@@ -37,6 +48,7 @@ header{
   width: 100%
   height:auto;
   margin-top: 15px;
+  margin-bottom: 15px;
   margin-left: auto;
   margin-right: auto;
   padding: 5px;
@@ -71,13 +83,13 @@ header{
 a:hover .overlay {
   opacity: .8;
 }
-.text {
+.text{
   width: 100%;
   text-align: center;
   color: white;
   font-size: 20px;
   position: absolute;
-  top: 50%;
+  top: 47%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);

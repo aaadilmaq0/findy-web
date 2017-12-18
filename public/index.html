@@ -30,19 +30,29 @@
                 <li class="navitem active"><a href="#"><strong>Home</strong></a></li>
                 <li class="navitem"><a href="#"><strong>About</strong></a></li>
                 <li class="navitem"><a href="#"><strong>Contact</strong></a></li>
+                <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
               </ul>
           </div>
       </div>
-  </nav>
+    </nav>
   </header>
-
 <!-- MAIN WEBPAGE STARTRS -->
-  <div class="wrapper container-fluid">
+  <div class="row wrapper logodiv" id="logo">
+    <div class="col-md-6 container-fluid">
+      <img id="logoimg" class="img-responsive"src="logo/f-white-square.png" alt="" onclick="startClick()">
+    </div>
+    <div class="col-md-6 container-fluid">
+      <div id="clickme">
+        <img src="" alt="">
+      </div>
+    </div>
+  </div>
+  <div id="mainweb" class="wrapper container-fluid">
     <div class="row athens">
     <div class="col-md-1">
     </div>
       <div class="col-md-10 athensdiv">
-        <a href="destinations/athens.html">
+        <a href="destinations/athens/athens.html">
           <img id="athensimg" class="img-responsive" src="images/athens.jpg" alt="athens">
           <div class="overlay">
             <div class="text"><strong>A   T   H   E   N   S</strong></div>
@@ -273,6 +283,13 @@
       messagingSenderId: "227043781907"
       };
     firebase.initializeApp(config);
+
+    function startClick(){
+      var fromTop=$('#mainweb').offset().top-40;
+      $('html, body').animate({
+          scrollTop: fromTop
+      }, 1000);
+    }
   </script>
   </body>
 </html>
