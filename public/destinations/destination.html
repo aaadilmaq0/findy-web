@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ATHENS</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  </head>
+  <body style="background-color:#101010;">
+    <header id="header">
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand">
+                findy
+              </a>
+          </div>
+          <!-- Menu Items -->
+          <div class="collapse navbar-collapse" id="mainNavBar">
+              <ul class="nav navbar-nav">
+                <li class="navitem "><a href="#"><strong>Home</strong></a></li>
+                <li class="navitem"><a href="#"><strong>About</strong></a></li>
+                <li class="navitem"><a href="#"><strong>Contact</strong></a></li>
+                <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="destinations/destination.html?place=athens">Athens</a></li>
+                            <li><a href="destinations/destination.html?place=mykonos">Mykonos</a></li>
+                            <li><a href="destinations/destination.html?place=macedonia">Macedonia</a></li>
+                            <li><a href="destinations/destination.html?place=corfu">Corfu</a></li>
+                            <li><a href="destinations/destination.html?place=crete">Crete</a></li>
+                            <li><a href="destinations/destination.html?place=kalambaka">Kalambaka</a></li>
+                            <li><a href="destinations/destination.html?place=milos">Milos</a></li>
+                            <li><a href="destinations/destination.html?place=naxos">Naxos</a></li>
+                            <li><a href="destinations/destination.html?place=rhodes">Rhodes</a></li>
+                            <li><a href="destinations/destination.html?place=santorini">Santorini</a></li>
+                            <li><a href="destinations/destination.html?place=arachovadelphi">Arachova-Delphi</a></li>
+                            <li><a href="destinations/destination.html?place=cephalonia">Cephalonia</a></li>
+                            <li><a href="destinations/destination.html?place=halkidiki">Halkidiki</a></li>
+                            <li><a href="destinations/destination.html?place=hydra">Hydra</a></li>
+                            <li><a href="destinations/destination.html?place=lefkada">Lefkada</a></li>
+                            <li><a href="destinations/destination.html?place=messinia">Messinia</a></li>
+                            <li><a href="destinations/destination.html?place=nafpio">Nafpio</a></li>
+                            <li><a href="destinations/destination.html?place=paros">Paros</a></li>
+                            <li><a href="destinations/destination.html?place=patmos">Patmos</a></li>
+                            <li><a href="destinations/destination.html?place=pelion">Pelion</a></li>
+                            <li><a href="destinations/destination.html?place=sifnos">Sifnos</a></li>
+                            <li><a href="destinations/destination.html?place=skiathos">Skiathos</a></li>
+                            <li><a href="destinations/destination.html?place=spetses">Spetses</a></li>
+                            <li><a href="destinations/destination.html?place=zakynthos">Zakynthos</a></li>
+                            <li><a href="destinations/destination.html?place=olympia">Olympia</a></li>
+                        </ul>
+                </li>
+                <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+  </header>
+<!-- MAIN WEBPAGE STARTRS -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li><a href="#">Accommodations</a></li>
+            <li><a href="#">Attractions</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">How To Get</a></li>
+            <li><a href="#">Rentals and Services</a></li>
+            <li><a href="#">Shopping</a></li>
+            <li><a href="#">Things to do</a></li>
+            <li><a href="#">Account</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+
+    <!-- Page content -->
+    <div id="page-content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <a href="#" class="btn btn-success" id="menu-toggle">
+                      <button type="button" class="" data-toggle="" data-target="">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                    </a>
+                    <h1 id="head1">Sidebar Layouts are Cool</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Menu toggle script -->
+    <script>
+      $("#menu-toggle").click( function (e){
+          e.preventDefault();
+          $("#wrapper").toggleClass("menuDisplayed");
+        });
+    </script>
+    <script src="../../app.js"></script>
+    <script>
+      var parameters = location.search.substring(1).split("&");
+      var temp= parameters[0].split("=");
+      var p=temp[1];
+      console.log(p);
+    </script>
+  </body>
+</html>

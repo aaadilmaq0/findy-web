@@ -1,8 +1,5 @@
-body{
-  background-color: black;
-}
 header{
-  z-index: 1;
+  z-index: 2;
   height: 50px;
   width: 100%;
   position: fixed;
@@ -24,7 +21,7 @@ header{
   background-color: #101010;
 }
 #clickme{
-  
+
 }
 #logo{
   width: 100vw;
