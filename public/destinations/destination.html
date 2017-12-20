@@ -35,31 +35,31 @@
                 <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="destinations/destination.html?place=athens">Athens</a></li>
-                            <li><a href="destinations/destination.html?place=mykonos">Mykonos</a></li>
-                            <li><a href="destinations/destination.html?place=macedonia">Macedonia</a></li>
-                            <li><a href="destinations/destination.html?place=corfu">Corfu</a></li>
-                            <li><a href="destinations/destination.html?place=crete">Crete</a></li>
-                            <li><a href="destinations/destination.html?place=kalambaka">Kalambaka</a></li>
-                            <li><a href="destinations/destination.html?place=milos">Milos</a></li>
-                            <li><a href="destinations/destination.html?place=naxos">Naxos</a></li>
-                            <li><a href="destinations/destination.html?place=rhodes">Rhodes</a></li>
-                            <li><a href="destinations/destination.html?place=santorini">Santorini</a></li>
-                            <li><a href="destinations/destination.html?place=arachovadelphi">Arachova-Delphi</a></li>
-                            <li><a href="destinations/destination.html?place=cephalonia">Cephalonia</a></li>
-                            <li><a href="destinations/destination.html?place=halkidiki">Halkidiki</a></li>
-                            <li><a href="destinations/destination.html?place=hydra">Hydra</a></li>
-                            <li><a href="destinations/destination.html?place=lefkada">Lefkada</a></li>
-                            <li><a href="destinations/destination.html?place=messinia">Messinia</a></li>
-                            <li><a href="destinations/destination.html?place=nafpio">Nafpio</a></li>
-                            <li><a href="destinations/destination.html?place=paros">Paros</a></li>
-                            <li><a href="destinations/destination.html?place=patmos">Patmos</a></li>
-                            <li><a href="destinations/destination.html?place=pelion">Pelion</a></li>
-                            <li><a href="destinations/destination.html?place=sifnos">Sifnos</a></li>
-                            <li><a href="destinations/destination.html?place=skiathos">Skiathos</a></li>
-                            <li><a href="destinations/destination.html?place=spetses">Spetses</a></li>
-                            <li><a href="destinations/destination.html?place=zakynthos">Zakynthos</a></li>
-                            <li><a href="destinations/destination.html?place=olympia">Olympia</a></li>
+                            <li><a href="destination.html?place=athens">Athens</a></li>
+                            <li><a href="destination.html?place=mykonos">Mykonos</a></li>
+                            <li><a href="destination.html?place=macedonia">Macedonia</a></li>
+                            <li><a href="destination.html?place=corfu">Corfu</a></li>
+                            <li><a href="destination.html?place=crete">Crete</a></li>
+                            <li><a href="destination.html?place=kalambaka">Kalambaka</a></li>
+                            <li><a href="destination.html?place=milos">Milos</a></li>
+                            <li><a href="destination.html?place=naxos">Naxos</a></li>
+                            <li><a href="destination.html?place=rhodes">Rhodes</a></li>
+                            <li><a href="destination.html?place=santorini">Santorini</a></li>
+                            <li><a href="destination.html?place=arachovadelphi">Arachova-Delphi</a></li>
+                            <li><a href="destination.html?place=cephalonia">Cephalonia</a></li>
+                            <li><a href="destination.html?place=halkidiki">Halkidiki</a></li>
+                            <li><a href="destination.html?place=hydra">Hydra</a></li>
+                            <li><a href="destination.html?place=lefkada">Lefkada</a></li>
+                            <li><a href="destination.html?place=messinia">Messinia</a></li>
+                            <li><a href="destination.html?place=nafpio">Nafpio</a></li>
+                            <li><a href="destination.html?place=paros">Paros</a></li>
+                            <li><a href="destination.html?place=patmos">Patmos</a></li>
+                            <li><a href="destination.html?place=pelion">Pelion</a></li>
+                            <li><a href="destination.html?place=sifnos">Sifnos</a></li>
+                            <li><a href="destination.html?place=skiathos">Skiathos</a></li>
+                            <li><a href="destination.html?place=spetses">Spetses</a></li>
+                            <li><a href="destination.html?place=zakynthos">Zakynthos</a></li>
+                            <li><a href="destination.html?place=olympia">Olympia</a></li>
                         </ul>
                 </li>
                 <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
@@ -98,8 +98,22 @@
                           <span class="icon-bar"></span>
                       </button>
                     </a>
-                    <h1 id="head1">Sidebar Layouts are Cool</h1>
                 </div>
+            </div>
+            <div class="listofitems">
+              <div class="row">
+                <div class="col-md-12 well" style="text-align:center;">
+                    <div style="width:100%;text-align:center;">
+                      <h1>Acropolis</h1>
+                    </div>
+                      <div class="col-md-3" style="margin-top:20px;">
+                        <img style="width:100%;height:auto;"src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fathens.jpg?alt=media&token=d5bc8362-45cd-4495-b74e-eef6066b5699" alt="">
+                      </div>
+                      <div class="col-md-9" style="margin-top:20px;">
+                        Description
+                      </div>
+                </div>
+              </div>
             </div>
         </div>
     </div>
@@ -112,12 +126,6 @@
           $("#wrapper").toggleClass("menuDisplayed");
         });
     </script>
-    <script src="../../app.js"></script>
-    <script>
-      var parameters = location.search.substring(1).split("&");
-      var temp= parameters[0].split("=");
-      var p=temp[1];
-      console.log(p);
-    </script>
+    <script src="../../app.
   </body>
 </html>

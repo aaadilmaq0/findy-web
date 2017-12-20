@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>findy</title>
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase-firestore.js"></script>
+  </head>
+  <body style="background-color:#101010;">
+    <header id="header">
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand">
+                findy
+              </a>
+          </div>
+          <!-- Menu Items -->
+          <div class="collapse navbar-collapse" id="mainNavBar">
+              <ul class="nav navbar-nav">
+                <li class="navitem active"><a href="#"><strong>Home</strong></a></li>
+                <li class="navitem"><a href="#"><strong>About</strong></a></li>
+                <li class="navitem"><a href="#"><strong>Contact</strong></a></li>
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="destinations/destination.html?place=athens">Athens</a></li>
+                            <li><a href="destinations/destination.html?place=mykonos">Mykonos</a></li>
+                            <li><a href="destinations/destination.html?place=macedonia">Macedonia</a></li>
+                            <li><a href="destinations/destination.html?place=corfu">Corfu</a></li>
+                            <li><a href="destinations/destination.html?place=crete">Crete</a></li>
+                            <li><a href="destinations/destination.html?place=kalambaka">Kalambaka</a></li>
+                            <li><a href="destinations/destination.html?place=milos">Milos</a></li>
+                            <li><a href="destinations/destination.html?place=naxos">Naxos</a></li>
+                            <li><a href="destinations/destination.html?place=rhodes">Rhodes</a></li>
+                            <li><a href="destinations/destination.html?place=santorini">Santorini</a></li>
+                            <li><a href="destinations/destination.html?place=arachovadelphi">Arachova-Delphi</a></li>
+                            <li><a href="destinations/destination.html?place=cephalonia">Cephalonia</a></li>
+                            <li><a href="destinations/destination.html?place=halkidiki">Halkidiki</a></li>
+                            <li><a href="destinations/destination.html?place=hydra">Hydra</a></li>
+                            <li><a href="destinations/destination.html?place=lefkada">Lefkada</a></li>
+                            <li><a href="destinations/destination.html?place=messinia">Messinia</a></li>
+                            <li><a href="destinations/destination.html?place=nafpio">Nafpio</a></li>
+                            <li><a href="destinations/destination.html?place=paros">Paros</a></li>
+                            <li><a href="destinations/destination.html?place=patmos">Patmos</a></li>
+                            <li><a href="destinations/destination.html?place=pelion">Pelion</a></li>
+                            <li><a href="destinations/destination.html?place=sifnos">Sifnos</a></li>
+                            <li><a href="destinations/destination.html?place=skiathos">Skiathos</a></li>
+                            <li><a href="destinations/destination.html?place=spetses">Spetses</a></li>
+                            <li><a href="destinations/destination.html?place=zakynthos">Zakynthos</a></li>
+                            <li><a href="destinations/destination.html?place=olympia">Olympia</a></li>
+                        </ul>
+                </li>
+                <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+  </header>
+  <div class="wrapper">
+    <div class="row destinations">
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=spetses">
+          <img class="dt img-responsive" src="https://russellinfo.co.nz/wp-content/uploads/2014/05/The-Eyrie-Villa-Bedroom.jpg" alt="">
+          <div class="overlay">
+            <div class="text"><strong>ACCOMMODATION</strong></div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=zakynthos">
+          <img class="dt img-responsive" src="https://www.excursionsbarcelona.com/wp-content/uploads/2016/02/Thumbnail-Bike-tour-page-1..jpg" alt="">
+          <div class="overlay">
+            <div class="text"><strong>Attractions</strong></div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=olympia">
+          <img class="dt img-responsive" src="http://www.rowhanisaffron.com/wp-content/uploads/beef-and-vegetable-soup.jpg" alt="">
+          <div class="overlay">
+            <div class="text"><strong>Food</strong></div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row destinations">
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=spetses">
+          <img class="dt img-responsive" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Interjet_Sukhoi_Superjet_landing_at_Mexico_City_International_Airport.jpg" alt="">
+          <div class="overlay">
+            <div class="text"><strong>How to Get</strong></div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=zakynthos">
+          <img class="dt img-responsive" src="https://www.easternlifttruck.com/files/download/image/87ccabe7-9608-4186-a521-4ccf11c318b8.png" alt="">
+          <div class="overlay">
+            <div class="text"><strong>Rentals/Services</strong></div>
+          </div>
+        </a>
+      </div>
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=olympia">
+          <img class="dt img-responsive" src="https://vignette.wikia.nocookie.net/janethevirgin/images/e/e3/Jane-the-virgin-season-1-photos-17.jpg/revision/latest?cb=20170330185043" alt="">
+          <div class="overlay">
+            <div class="text"><strong>Shopping</strong></div>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="row destinations">
+      <div class="col-md-4">
+        <a href="destinations/destination.html?place=olympia">
+          <img class="dt img-responsive" src="http://www.pnayouthcamp.com/albums/img/2004/images/pna_4.jpg" alt="">
+          <div class="overlay">
+            <div class="text"><strong>Things to do</strong></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+  </body>
+</html>

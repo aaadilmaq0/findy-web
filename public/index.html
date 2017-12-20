@@ -8,6 +8,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase-firestore.js"></script>
   </head>
   <body style="background-color:#101010;">
     <header id="header">
@@ -301,18 +303,7 @@
       </div>
     </div>
   </div>
-    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-      apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
-      authDomain: "findy-b69e4.firebaseapp.com",
-      databaseURL: "https://findy-b69e4.firebaseio.com",
-      projectId: "findy-b69e4",
-      storageBucket: "findy-b69e4.appspot.com",
-      messagingSenderId: "227043781907"
-      };
-    firebase.initializeApp(config);
 
     function startClick(){
       var fromTop=$('#mainweb').offset().top-40;
@@ -321,5 +312,6 @@
       }, 1000);
     }
   </script>
+  <script src="app.js"></script>
   </body>
 </html>
