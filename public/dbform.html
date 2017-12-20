@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Something</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div class="" id="abc">
+
+    </div>
+    <form id="categoryselection" class="form" action="" method="">
+      <select id="categoryselect" name="">
+        <option value=""selected>select any one</option>
+        <option value="attractions">attractions</option>
+        <option value="accommodations">accommodations</option>
+        <option value="food">food</option>
+        <option value="howtoget">howtoget</option>
+        <option value="services">rentals/services</option>
+        <option value="shopping">shopping</option>
+        <option value="thingstodo">things to do</option>
+      </select>
+      <br>
+
+    </form>
+    <button type="button" name="button" onclick="xyz()">click me</button>
+    <div class="" id="atform" style="visibility:hidden;">
+      <form >
+        Name: <input  type="text" id="atname" value=""> <br>
+        Description: <br> <textarea id="atdescription" rows="8" cols="80"></textarea> <br>
+        City/Town: <input type="text" id="atcity" value=""> <br>
+        Location/Nearest Point: <input type="text" id="atlocation" value=""> <br>
+        Map-coordinate x :<input type="number" step="any" id="atx" value=""> Map-coordinate y: <input type="number" step="any" id="aty" value=""> <br>
+        E-mail: <input type="email" id="atemail" value=""> <br>
+        Phone: <input type="number" id="atphone" value=""> <br>
+        Filters (seperate by semicolon ;) :<br> <textarea id="atfilters" rows="8" cols="80"></textarea> <br>
+      </form>
+      <button type="button" name="atbutton" onclick="atsubmit()">Submit attraction</button>
+    </div>
+    <div class="" id="acform" style="visibility:hidden;">
+      <form >
+        Name: <input  type="text" id="acname" value=""> <br>
+        Description: <br> <textarea id="acdescription" rows="8" cols="80"></textarea> <br>
+        City/Town: <input type="text" id="accity" value=""> <br>
+        Location/Nearest Point: <input type="text" id="aclocation" value=""> <br>
+        Map-coordinate x :<input type="number" step="any" id="acx" value=""> Map-coordinate y: <input type="number" step="any" id="acy" value=""> <br>
+        E-mail: <input type="email" id="acemail" value=""> <br>
+        Phone: <input type="number" id="acphone" value=""> <br>
+        Filters (seperate by semicolon ;) :<br> <textarea id="acfilters" rows="8" cols="80"></textarea> <br>
+        Facilities: <br>
+        <input type="checkbox" id="acwifi" value="wifi">Wi-Fi
+        <input type="checkbox" id="acreakfast" value="breakfast">Breakfast
+        <input type="checkbox" id="acparking" value="parking">Parking <br>
+        <input type="checkbox" id="aclaundry" value="laundry"> Laundry
+        <input type="checkbox" id="acpool" value="pool"> Pool
+        <input type="checkbox" id="accheck" value="early">Early Check-in <br>
+        <input type="checkbox" id="actransfer" value="transfers"> Transfers
+      </form>
+      <button type="button" name="atbutton" onclick="acsubmit()">Submit attraction</button>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
+        authDomain: "findy-b69e4.firebaseapp.com",
+        databaseURL: "https://findy-b69e4.firebaseio.com",
+        projectId: "findy-b69e4",
+        storageBucket: "findy-b69e4.appspot.com",
+        messagingSenderId: "227043781907"
+      };
+      firebase.initializeApp(config);
+      </script>
+
+      <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase-firestore.js"></script>
+    <script type="text/javascript">
+
+      function xyz(){
+        var x;
+        var ddl = document.getElementById("categoryselect");
+        var selectedValue = ddl.options[ddl.selectedIndex].value;
+        if(selectedValue=="attractions")
+          x=document.getElementById('atform').innerHTML;
+        else if(selectedValue=="accommodations")
+          x=document.getElementById('acform').innerHTML;
+        document.getElementById('abc').innerHTML=x;
+      }
+      function atsubmit(){
+        var atname=document.getElementById('atname').value;
+        var atdescription=document.getElementById('atdescription').value;
+        var atcity=document.getElementById('atcity').value;
+        var atlocation=document.getElementById('atlocation').value;
+        var atx=document.getElementById('atx').value;
+        var aty=document.getElementById('aty').value;
+        var atemail=document.getElementById('atemail').value;
+        var atphone=document.getElementById('atphone').value;
+        var dbref= firebase.database().ref();
+        dbref.child("categories").child("attractions").child(atname).child("description").set(atdescription);
+        dbref.child("categories").child("attractions").child(atname).child("city").set(atcity);
+        dbref.child("categories").child("attractions").child(atname).child("location").set(atlocation);
+        dbref.child("categories").child("attractions").child(atname).child("x").set(atx);
+        dbref.child("categories").child("attractions").child(atname).child("y").set(aty);
+        dbref.child("categories").child("attractions").child(atname).child("email").set(atemail);
+        dbref.child("categories").child("attractions").child(atname).child("phone").set(atphone);
+      }
+      function acsubmit() {
+        
+      }
+    </script>
+  </body>
+</html>
