@@ -10,6 +10,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase-firestore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body style="background-color:#101010;">
     <header id="header">
@@ -35,34 +36,38 @@
                 <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a href="destinations/destination.html?place=athens">Athens</a></li>
-                            <li><a href="destinations/destination.html?place=mykonos">Mykonos</a></li>
-                            <li><a href="destinations/destination.html?place=macedonia">Macedonia</a></li>
-                            <li><a href="destinations/destination.html?place=corfu">Corfu</a></li>
-                            <li><a href="destinations/destination.html?place=crete">Crete</a></li>
-                            <li><a href="destinations/destination.html?place=kalambaka">Kalambaka</a></li>
-                            <li><a href="destinations/destination.html?place=milos">Milos</a></li>
-                            <li><a href="destinations/destination.html?place=naxos">Naxos</a></li>
-                            <li><a href="destinations/destination.html?place=rhodes">Rhodes</a></li>
-                            <li><a href="destinations/destination.html?place=santorini">Santorini</a></li>
-                            <li><a href="destinations/destination.html?place=arachovadelphi">Arachova-Delphi</a></li>
-                            <li><a href="destinations/destination.html?place=cephalonia">Cephalonia</a></li>
-                            <li><a href="destinations/destination.html?place=halkidiki">Halkidiki</a></li>
-                            <li><a href="destinations/destination.html?place=hydra">Hydra</a></li>
-                            <li><a href="destinations/destination.html?place=lefkada">Lefkada</a></li>
-                            <li><a href="destinations/destination.html?place=messinia">Messinia</a></li>
-                            <li><a href="destinations/destination.html?place=nafpio">Nafpio</a></li>
-                            <li><a href="destinations/destination.html?place=paros">Paros</a></li>
-                            <li><a href="destinations/destination.html?place=patmos">Patmos</a></li>
-                            <li><a href="destinations/destination.html?place=pelion">Pelion</a></li>
-                            <li><a href="destinations/destination.html?place=sifnos">Sifnos</a></li>
-                            <li><a href="destinations/destination.html?place=skiathos">Skiathos</a></li>
-                            <li><a href="destinations/destination.html?place=spetses">Spetses</a></li>
-                            <li><a href="destinations/destination.html?place=zakynthos">Zakynthos</a></li>
-                            <li><a href="destinations/destination.html?place=olympia">Olympia</a></li>
+                            <li><a href="categories.html?place=athens">Athens</a></li>
+                            <li><a href="categories.html?place=mykonos">Mykonos</a></li>
+                            <li><a href="categories.html?place=macedonia">Macedonia</a></li>
+                            <li><a href="categories.html?place=corfu">Corfu</a></li>
+                            <li><a href="categories.html?place=crete">Crete</a></li>
+                            <li><a href="categories.html?place=kalambaka">Kalambaka</a></li>
+                            <li><a href="categories.html?place=milos">Milos</a></li>
+                            <li><a href="categories.html?place=naxos">Naxos</a></li>
+                            <li><a href="categories.html?place=rhodes">Rhodes</a></li>
+                            <li><a href="categories.html?place=santorini">Santorini</a></li>
+                            <li><a href="categories.html?place=arachovadelphi">Arachova-Delphi</a></li>
+                            <li><a href="categories.html?place=cephalonia">Cephalonia</a></li>
+                            <li><a href="categories.html?place=halkidiki">Halkidiki</a></li>
+                            <li><a href="categories.html?place=hydra">Hydra</a></li>
+                            <li><a href="categories.html?place=lefkada">Lefkada</a></li>
+                            <li><a href="categories.html?place=messinia">Messinia</a></li>
+                            <li><a href="categories.html?place=nafpio">Nafpio</a></li>
+                            <li><a href="categories.html?place=paros">Paros</a></li>
+                            <li><a href="categories.html?place=patmos">Patmos</a></li>
+                            <li><a href="categories.html?place=pelion">Pelion</a></li>
+                            <li><a href="categories.html?place=sifnos">Sifnos</a></li>
+                            <li><a href="categories.html?place=skiathos">Skiathos</a></li>
+                            <li><a href="categories.html?place=spetses">Spetses</a></li>
+                            <li><a href="categories.html?place=zakynthos">Zakynthos</a></li>
+                            <li><a href="categories.html?place=olympia">Olympia</a></li>
                         </ul>
                 </li>
                 <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
+              </ul>
+              <!--right align -->
+              <ul class="nav navbar-right">
+                <li class="navitem" style="font-size:23px;"><a href="#"><strong>&#x1F50D;</strong></a></li>
               </ul>
           </div>
       </div>
@@ -70,13 +75,14 @@
   </header>
 <!-- MAIN WEBPAGE STARTRS -->
   <div class="row wrapper logodiv" id="logo">
-    <div class="col-md-6 container-fluid">
-      <img id="logoimg" class="img-responsive"src="logo/f-white-square.png" alt="" onclick="startClick()">
+    <div class="col-md-3">
+
     </div>
-    <div class="col-md-6 container-fluid">
-      <div id="clickme">
-        <img src="" alt="">
-      </div>
+    <div class="col-md-6 container-fluid" id="logodiv">
+      <img id="logoimg" class="img-responsive"src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Ff-white-square.png?alt=media&token=c5087f56-6447-4db9-8998-2289e2890e5b" alt="" onclick="startClick()">
+    </div>
+    <div class="col-md-3">
+
     </div>
   </div>
   <div id="mainweb" class="wrapper container-fluid">
@@ -84,7 +90,7 @@
     <div class="col-md-1">
     </div>
       <div class="col-md-10 athensdiv">
-        <a href="destinations/destination.html?place=athens">
+        <a href="categories.html?place=athens">
           <img id="athensimg" class="img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fathens.jpg?alt=media&token=d5bc8362-45cd-4495-b74e-eef6066b5699" alt="athens">
           <div class="overlay">
             <div class="text"><strong>A   T   H   E   N   S</strong></div>
@@ -96,7 +102,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=mykonos">
+        <a href="categories.html?place=mykonos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fmykonos.jpeg?alt=media&token=a5e25c16-62ba-450b-a1b9-513afb92c835" alt="mykonos">
           <div class="overlay">
             <div class="text"><strong>M   Y   K   O   N   O   S</strong></div>
@@ -104,7 +110,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=macedonia">
+        <a href="categories.html?place=macedonia">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fmacedonia.jpeg?alt=media&token=b1c97e94-0306-472b-ac3e-a0f351584c85" alt="macedonia">
           <div class="overlay">
             <div class="text"><strong>M A C E D O N I A</strong></div>
@@ -112,7 +118,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=corfu">
+        <a href="categories.html?place=corfu">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fmacedonia.jpeg?alt=media&token=b1c97e94-0306-472b-ac3e-a0f351584c85" alt="">
           <div class="overlay">
             <div class="text"><strong>C   O   R   F   U</strong></div>
@@ -122,7 +128,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=crete">
+        <a href="categories.html?place=crete">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fcrete.jpg?alt=media&token=1b301688-b070-41e4-89ae-2c0381a56d60" alt="">
           <div class="overlay">
             <div class="text"><strong>C   R   E   T   E</strong></div>
@@ -130,7 +136,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=kalambaka">
+        <a href="categories.html?place=kalambaka">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fkalambaka.jpg?alt=media&token=40fa29bc-3d8f-4aa7-9ba9-0c13fd101a20" alt="">
           <div class="overlay">
             <div class="text"><strong>K   A   L   A   M   B   A   K   A</strong></div>
@@ -138,7 +144,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=milos">
+        <a href="categories.html?place=milos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fkalambaka.jpg?alt=media&token=40fa29bc-3d8f-4aa7-9ba9-0c13fd101a20"alt="">
           <div class="overlay">
             <div class="text"><strong>M   I   L   O   S</strong></div>
@@ -148,7 +154,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=naxos">
+        <a href="categories.html?place=naxos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fnaxos.jpg?alt=media&token=c210e1e0-cc29-4b40-96d9-95f816e55aff"alt="">
           <div class="overlay">
             <div class="text"><strong>N   A   X   O   S</strong></div>
@@ -156,7 +162,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=rhodes">
+        <a href="categories.html?place=rhodes">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Frhodes.jpg?alt=media&token=a05955cb-064a-4a15-8635-177854c7f856" alt="">
           <div class="overlay">
             <div class="text"><strong>R   H   O   D   E   S</strong></div>
@@ -164,7 +170,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=santorini">
+        <a href="categories.html?place=santorini">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fsantorini.jpg?alt=media&token=e7d4f74e-a2e4-45d4-869f-e3ebc4417f2b" alt="">
           <div class="overlay">
             <div class="text"><strong>S   A   N   T   O   R   I   N   I</strong></div>
@@ -174,7 +180,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=arachovadelphi">
+        <a href="categories.html?place=arachovadelphi">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Farachova-delphi.jpg?alt=media&token=9d8cd5d0-87db-4123-b774-c0d30cbfaa24" alt="">
           <div class="overlay">
             <div class="text"><strong></strong>A R A C H O V A-D E L P H I</div>
@@ -182,7 +188,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=cephalonia">
+        <a href="categories.html?place=cephalonia">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fcephalonia.jpg?alt=media&token=f1d706c6-4471-4451-9847-e124656fb2c0" alt="">
           <div class="overlay">
             <div class="text"><strong>C E P H A L O N I A</strong></div>
@@ -190,7 +196,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=halkidiki">
+        <a href="categories.html?place=halkidiki">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fhalkidiki.jpg?alt=media&token=051f1efb-f7a3-4ea8-8d56-4d939e475303" alt="">
           <div class="overlay">
             <div class="text"><strong>H A L K I D I K I</strong></div>
@@ -200,7 +206,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=hydra">
+        <a href="categories.html?place=hydra">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fhydra.jpg?alt=media&token=f9def4a9-b6fa-45ba-99d1-0a0997d6baa3" alt="">
           <div class="overlay">
             <div class="text"><strong>H Y D R A</strong></div>
@@ -208,7 +214,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=lefkada">
+        <a href="categories.html?place=lefkada">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Flefkada.jpg?alt=media&token=92e40f0a-97fc-4532-89ab-adb673ad5e87" alt="">
           <div class="overlay">
             <div class="text"><strong>L E F K A D A</strong></div>
@@ -216,7 +222,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=messinia">
+        <a href="categories.html?place=messinia">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fmessinia.jpg?alt=media&token=78735f44-4738-4c96-98e2-238d8ae69f05" alt="">
           <div class="overlay">
             <div class="text"><strong>M E S S I N I A</strong></div>
@@ -226,7 +232,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=nafpio">
+        <a href="categories.html?place=nafpio">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fnafpio.jpg?alt=media&token=5bd06b47-b86c-4d5c-9ed4-62488107a110" alt="">
           <div class="overlay">
             <div class="text"><strong>N A F P I O</strong></div>
@@ -234,7 +240,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=paros">
+        <a href="categories.html?place=paros">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fparos.jpg?alt=media&token=761dc59c-f5df-4d3f-9c59-02ed9695d6ad" alt="">
           <div class="overlay">
             <div class="text"><strong>P A R O S</strong></div>
@@ -242,7 +248,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=patmos">
+        <a href="categories.html?place=patmos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fpatmos.jpg?alt=media&token=fc0f9476-c6f8-4801-ad7a-c4ff0589043b" alt="">
           <div class="overlay">
             <div class="text"><strong>P A T M O S</strong></div>
@@ -252,7 +258,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=pelion">
+        <a href="categories.html?place=pelion">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fpelion.jpg?alt=media&token=e023d04a-e014-4754-bb3b-4de39e6a6d00" alt="">
           <div class="overlay">
             <div class="text"><strong>P E L I O N</strong></div>
@@ -260,7 +266,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=sifnos">
+        <a href="categories.html?place=sifnos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fsifnos.jpg?alt=media&token=e85ed4c1-19f6-4dcf-9692-464c8cbc27eb" alt="">
           <div class="overlay">
             <div class="text"><strong>S I F N O S</strong></div>
@@ -268,7 +274,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=skiathos">
+        <a href="categories.html?place=skiathos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fskiathos.jpg?alt=media&token=cfcfb347-985d-4cd1-9e8a-9ae4dc882b89" alt="">
           <div class="overlay">
             <div class="text"><strong>S K I A T H O S</strong></div>
@@ -278,7 +284,7 @@
     </div>
     <div class="row destinations">
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=spetses">
+        <a href="categories.html?place=spetses">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fspetses.jpg?alt=media&token=6f730008-1ff1-411d-810e-ee62ac069d2f" alt="">
           <div class="overlay">
             <div class="text"><strong>S P E T S E S</strong></div>
@@ -286,7 +292,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=zakynthos">
+        <a href="categories.html?place=zakynthos">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fzakynthos.jpg?alt=media&token=f59589b6-9b9a-438c-8055-3fd25fbc7c47" alt="">
           <div class="overlay">
             <div class="text"><strong>Z A K Y N T H O S</strong></div>
@@ -294,7 +300,7 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="destinations/destination.html?place=olympia">
+        <a href="categories.html?place=olympia">
           <img class="dt img-responsive" src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Folympia.jpg?alt=media&token=5467a7cb-7936-441a-b36d-b07eb8ef5545" alt="">
           <div class="overlay">
             <div class="text"><strong>O L Y M P I A</strong></div>
