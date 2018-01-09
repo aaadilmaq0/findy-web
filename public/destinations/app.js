@@ -9,10 +9,16 @@ messagingSenderId: "227043781907"
 };
 firebase.initializeApp(config);
 
+var parameters = location.search.substring(1).split("&");
+var temp1= parameters[0].split("=");
+var category=temp1[1];
+var temp2= parameters[1].split("=");
+var place=temp2[1];
 
-  var parameters = location.search.substring(1).split("&");
-  var temp1= parameters[0].split("=");
-  var category=temp1[1];
-  var temp2= parameters[1].split("=");
-  var place=temp2[1];
-  console.log(place+" "+category);
+var dbref=firebase.database().ref();
+var cursor=dbref.child("base").orderByChild("Category").equalTo(category).limitToFirst(1);
+
+cursor.on('value',function(snapshot) {
+  /* Act on the event */
+
+});

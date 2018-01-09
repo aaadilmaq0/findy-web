@@ -101,18 +101,8 @@
                 </div>
             </div>
             <div class="listofitems">
-              <div class="row">
-                <div class="col-md-12 well" style="text-align:center;">
-                    <div style="width:100%;text-align:center;">
-                      <h1>Acropolis</h1>
-                    </div>
-                      <div class="col-md-3" style="margin-top:20px;">
-                        <img style="width:100%;height:auto;"src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/Destination%20PIcs%2Fathens.jpg?alt=media&token=d5bc8362-45cd-4495-b74e-eef6066b5699" alt="">
-                      </div>
-                      <div class="col-md-9" style="margin-top:20px;">
-                        Description
-                      </div>
-                </div>
+              <div class="row" id="listview">
+
               </div>
             </div>
         </div>
@@ -126,7 +116,81 @@
           $("#wrapper").toggleClass("menuDisplayed");
         });
     </script>
-    <script src="app.js"></script>
+    <script >
+    // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
+        authDomain: "findy-b69e4.firebaseapp.com",
+        databaseURL: "https://findy-b69e4.firebaseio.com",
+        projectId: "findy-b69e4",
+        storageBucket: "findy-b69e4.appspot.com",
+        messagingSenderId: "227043781907"
+      };
+      firebase.initializeApp(config);
+      /*<div class="col-md-12 well" style="text-align:center;">
+          <div style="width:100%;text-align:center;">
+            <h1><!--Heading--></h1>
+          </div>
+            <div class="col-md-3" style="margin-top:20px;">
+              <!--Image-->
+              <img style="width:100%;height:auto;"src= alt="">
+            </div>
+            <div class="col-md-9" style="margin-top:20px;">
+              <!--Small Description-->
+            </div>
+            <div class="col-md-12">
+              <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
+              <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
+              <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
+              <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
+            </div>
+      </div>*/
+      var list1 = [];
+      var parameters = location.search.substring(1).split("&");
+      var temp1= parameters[0].split("=");
+      var category=temp1[1];
+      var temp2= parameters[1].split("=");
+      var place=temp2[1];
+      //console.log(category+" "+place);
+      var dbref=firebase.database().ref('base');
+      dbref.on('value', gotData, errData);
 
+      function gotData(data){
+        //console.log(data.val());
+        var x=data.val();
+        var keys=Object.keys(x);
+        //console.log(keys);
+        for (var i = 0; i < keys.length; i++){
+          var key=keys[i];
+          //console.log(key);
+          var city=x[key].City;
+          var Category=x[key].Category;
+          if((city==place)&&(Category==category))
+            list1.push(x[key]);
+        }
+        for (var i = 0; i < list1.length; i++) {
+          console.log(list1[i]);
+        }
+        show();
+      }
+      function errData(err){
+          console.log(err);
+      }
+      var currentinnerhtml=document.getElementById('listview').innerHTML;
+      function show(){
+        for (var i = 0; i < list1.length; i++) {
+          var l1='<div class="col-md-12 well"  style="text-align:center;"><div style="width:100%;text-align:center"><h1>';
+          var l2='</h1></div><div class="col-md-3" style="margin-top:10px;">';
+          var l3='</div><div class="col-md-9" style="margin-top:10px;">';
+          var l4='</div><div class="col-md-12" style="margin-top:15px;"><a target="_blank" href="https://www.facebook.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ffblogo.png?alt=media&token=ee11cf13-33f9-4581-b641-8461cee670b2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp;<a target="_blank" href="www.linkedin.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Flinkedinlopgo.png?alt=media&token=bee79269-663d-465e-bb45-2483eec384a2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.twitter.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ftwitterlogo.png?alt=media&token=abdccd29-94b5-4dab-9133-da96cd4b8039" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tilemachos+Corfu"><img src="https://i.pinimg.com/736x/29/93/fd/2993fd151e2e1cab871aec155e22cbcc--location-logo-gn.jpg" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp</div></div>'
+          var resultitem=list1[i];
+          l1=l1+resultitem.Name;
+          l2=l2+'<img class="img-responsive" style="width:100%;height:auto;" src="'+resultitem.picurl+'">';
+          l3=l3+resultitem.smdesc;
+          currentinnerhtml=currentinnerhtml+l1+l2+l3+l4;
+          document.getElementById('listview').innerHTML=currentinnerhtml;
+        }
+      }
+    </script>
   </body>
 </html>
