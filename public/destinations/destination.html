@@ -5,7 +5,7 @@
     <title>ATHENS</title>
     <link rel="stylesheet" href="mystyle.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
@@ -70,7 +70,6 @@
   </header>
 <!-- MAIN WEBPAGE STARTRS -->
 <div id="wrapper">
-
     <!-- Sidebar -->
     <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
@@ -109,6 +108,9 @@
     </div>
 </div>
 
+<div id="overlay" onclick="off()">
+
+</div>
 <!-- Menu toggle script -->
     <script>
       $("#menu-toggle").click( function (e){
@@ -116,7 +118,7 @@
           $("#wrapper").toggleClass("menuDisplayed");
         });
     </script>
-    <script >
+    <script type="text/javascript">
     // Initialize Firebase
       var config = {
         apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
@@ -139,10 +141,16 @@
               <!--Small Description-->
             </div>
             <div class="col-md-12">
+              <div class="col-md-6">
+              <!--fb twitter location etc-->
               <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
               <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
               <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
               <img src="" class="img-responsive" width="5px" height="auto" style="margin-left:auto;margin-right:auto;">
+              </div>
+              <div class="col-md-6">
+              <a href="#" onclick="overlay(resultitem)">Gallery and More Information</a>
+              </div>
             </div>
       </div>*/
       var list1 = [];
@@ -179,17 +187,56 @@
       var currentinnerhtml=document.getElementById('listview').innerHTML;
       function show(){
         for (var i = 0; i < list1.length; i++) {
+          var resultitem=list1[i];
+          var nameofplace=''+resultitem.Name;
           var l1='<div class="col-md-12 well"  style="text-align:center;"><div style="width:100%;text-align:center"><h1>';
           var l2='</h1></div><div class="col-md-3" style="margin-top:10px;">';
           var l3='</div><div class="col-md-9" style="margin-top:10px;">';
-          var l4='</div><div class="col-md-12" style="margin-top:15px;"><a target="_blank" href="https://www.facebook.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ffblogo.png?alt=media&token=ee11cf13-33f9-4581-b641-8461cee670b2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp;<a target="_blank" href="www.linkedin.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Flinkedinlopgo.png?alt=media&token=bee79269-663d-465e-bb45-2483eec384a2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.twitter.com"><img src="https://firebasestorage.googleapis.co[m/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ftwitterlogo.png?alt=media&token=abdccd29-94b5-4dab-9133-da96cd4b8039" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tilemachos+Corfu"><img src="https://i.pinimg.com/736x/29/93/fd/2993fd151e2e1cab871aec155e22cbcc--location-logo-gn.jpg" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp</div></div>'
-          var resultitem=list1[i];
-          l1=l1+resultitem.Name;
+          var l4='</div><div class="col-md-12" style="margin-top:15px;"><div class="col-md-6"><a target="_blank" href="https://www.facebook.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ffblogo.png?alt=media&token=ee11cf13-33f9-4581-b641-8461cee670b2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp;<a target="_blank" href="www.linkedin.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Flinkedinlopgo.png?alt=media&token=bee79269-663d-465e-bb45-2483eec384a2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.twitter.com"><img src="https://firebasestorage.googleapis.co[m/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ftwitterlogo.png?alt=media&token=abdccd29-94b5-4dab-9133-da96cd4b8039" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tilemachos+Corfu"><img src="https://i.pinimg.com/736x/29/93/fd/2993fd151e2e1cab871aec155e22cbcc--location-logo-gn.jpg" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp</div><div class="col-md-6" style="text-align:right;">';
+          var l5='<a href="#" class="resultitemlink">'
+          var l6='Gallery & More Information of '+resultitem.Name+'</a></div></div></div>';
+          l1=l1+nameofplace;
           l2=l2+'<img class="img-responsive" style="width:100%;height:auto;" src="'+resultitem.picurl+'">';
           l3=l3+resultitem.smdesc;
-          currentinnerhtml=currentinnerhtml+l1+l2+l3+l4;
+          currentinnerhtml=currentinnerhtml+l1+l2+l3+l4+l5+l6;
           document.getElementById('listview').innerHTML=currentinnerhtml;
         }
+      }
+
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("body").on('click', '.resultitemlink', function(event) {
+        event.preventDefault();
+        /* Act on the event */
+        var extractarray=$(this).text().split(' ');
+        var nameofplace=extractarray[extractarray.length-1];
+        var key;
+        for (var i = 0; i < list1.length; i++) {
+          if(list1[i].Name==nameofplace)
+            key=list1[i];
+        }
+        var l1='<div class="container well" style="margin-top:5px;max-width:80vw;text-align:center;"><h1 style="margin-top:2px;margin-bottom:20px;">'+nameofplace+'<h1>';
+        var l2='<div class="wrapper"><div class="row" style="">';
+        var l3='<div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="../images/pic1.jpg"></div><div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="../images/pic2.jpg"></div><div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="../images/pic3.jpg"></div>';
+        var l4='</div>'
+        var l5='<div id="bigdesc" style="margin-top:10px;text-align:center;"class="row"><div class="col-md-12" style="text-align:center;color:red;font-family:cursive;"';
+        var l6='<p>Big Description</p></div></div>';
+        var l7='</div></div>';
+        document.getElementById('overlay').innerHTML=l1+l2+l3+l4+l5+l6+l7;
+        console.log(key);
+        on();
+
+      });
+    });
+    </script>
+    <script>
+      function on() {
+        document.getElementById("overlay").style.display = "block";
+      }
+
+      function off() {
+        document.getElementById("overlay").style.display = "none";
       }
     </script>
   </body>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Seach Results</title>
+    <link rel="stylesheet" href="searchstyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  </head>
+  <body style="background-color:#101010;">
+    <header id="header">
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand">
+                findy
+              </a>
+          </div>
+          <!-- Menu Items -->
+          <div class="collapse navbar-collapse" id="mainNavBar">
+              <ul class="nav navbar-nav">
+                <li class="navitem "><a href="#"><strong>Home</strong></a></li>
+                <li class="navitem"><a href="#"><strong>About</strong></a></li>
+                <li class="navitem"><a href="#"><strong>Contact</strong></a></li>
+                <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="categories.html?place=athens">Athens</a></li>
+                            <li><a href="categories.html?place=mykonos">Mykonos</a></li>
+                            <li><a href="categories.html?place=macedonia">Macedonia</a></li>
+                            <li><a href="categories.html?place=corfu">Corfu</a></li>
+                            <li><a href="categories.html?place=crete">Crete</a></li>
+                            <li><a href="categories.html?place=kalambaka">Kalambaka</a></li>
+                            <li><a href="categories.html?place=milos">Milos</a></li>
+                            <li><a href="categories.html?place=naxos">Naxos</a></li>
+                            <li><a href="categories.html?place=rhodes">Rhodes</a></li>
+                            <li><a href="categories.html?place=santorini">Santorini</a></li>
+                            <li><a href="categories.html?place=arachovadelphi">Arachova-Delphi</a></li>
+                            <li><a href="categories.html?place=cephalonia">Cephalonia</a></li>
+                            <li><a href="categories.html?place=halkidiki">Halkidiki</a></li>
+                            <li><a href="categories.html?place=hydra">Hydra</a></li>
+                            <li><a href="categories.html?place=lefkada">Lefkada</a></li>
+                            <li><a href="categories.html?place=messinia">Messinia</a></li>
+                            <li><a href="categories.html?place=nafpio">Nafpio</a></li>
+                            <li><a href="categories.html?place=paros">Paros</a></li>
+                            <li><a href="categories.html?place=patmos">Patmos</a></li>
+                            <li><a href="categories.html?place=pelion">Pelion</a></li>
+                            <li><a href="categories.html?place=sifnos">Sifnos</a></li>
+                            <li><a href="categories.html?place=skiathos">Skiathos</a></li>
+                            <li><a href="categories.html?place=spetses">Spetses</a></li>
+                            <li><a href="categories.html?place=zakynthos">Zakynthos</a></li>
+                            <li><a href="categories.html?place=olympia">Olympia</a></li>
+                        </ul>
+                </li>
+                <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
+              </ul>
+              <!--right align -->
+              <ul class="nav navbar-right">
+                <li class="navitem" style="font-size:23px;"><a href="#"><img src="images/search/if_magnifyingglass_51535.png" height="25px" width="25px"></a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="" id="wrapper">
+    <div class="" id="page-content-wrapper">
+      <div class="container-fluid">
+        <div class="listofitems">
+          <div class="row" id="listview">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footerdiv">
+    <form>
+      <input id="kwsearch"type="text" class="textbox" placeholder="Keywords..">
+      <input id="locsearch"type="text" class="textbox" placeholder="Location">
+      <input id="fsearch" type="text" class="textbox" placeholder="Filters..">
+      <input title="Search" value="&#128269;" type="" class="button" onclick="search()">
+    </form>
+  </div>
+  <div id="overlay" onclick="off()">
+
+  </div>
+  <script type="text/javascript">
+    var parameters = location.search.substring(1).split("&");
+    var temp= parameters[0].split("=");
+    var p=temp[1];
+    var config = {
+      apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
+      authDomain: "findy-b69e4.firebaseapp.com",
+      databaseURL: "https://findy-b69e4.firebaseio.com",
+      projectId: "findy-b69e4",
+      storageBucket: "findy-b69e4.appspot.com",
+      messagingSenderId: "227043781907"
+    };
+    firebase.initializeApp(config);
+    var list1 = [];
+    var dbref=firebase.database().ref('base');
+    dbref.on('value', gotData, errData);
+    function gotData(data){
+      //console.log(data.val());
+      var x=data.val();
+      var keys=Object.keys(x);
+      //console.log(keys);
+      for (var i = 0; i < keys.length; i++){
+        var key=keys[i];
+        //console.log(key);
+        var city=x[key].City;
+        var Category=x[key].Category;
+        if((city==p))
+          list1.push(x[key]);
+      }
+      for (var i = 0; i < list1.length; i++) {
+        console.log(list1[i]);
+      }
+      show();
+    }
+    function errData(err){
+        console.log(err);
+    }
+    var currentinnerhtml=document.getElementById('listview').innerHTML;
+    function show(){
+      for (var i = 0; i < list1.length; i++) {
+        var resultitem=list1[i];
+        var nameofplace=''+resultitem.Name;
+        var l1='<div class="col-md-12 well"  style="text-align:center;"><div style="width:100%;text-align:center"><h1>';
+        var l2='</h1></div><div class="col-md-3" style="margin-top:10px;">';
+        var l3='</div><div class="col-md-9" style="margin-top:10px;">';
+        var l4='</div><div class="col-md-12" style="margin-top:15px;"><div class="col-md-6"><a target="_blank" href="https://www.facebook.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ffblogo.png?alt=media&token=ee11cf13-33f9-4581-b641-8461cee670b2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp;<a target="_blank" href="www.linkedin.com"><img src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Flinkedinlopgo.png?alt=media&token=bee79269-663d-465e-bb45-2483eec384a2" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.twitter.com"><img src="https://firebasestorage.googleapis.co[m/v0/b/findy-b69e4.appspot.com/o/logo%2Fsocialmedia%2Ftwitterlogo.png?alt=media&token=abdccd29-94b5-4dab-9133-da96cd4b8039" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp<a target="_blank" href="https://www.google.com/maps/search/?api=1&query=Tilemachos+Corfu"><img src="https://i.pinimg.com/736x/29/93/fd/2993fd151e2e1cab871aec155e22cbcc--location-logo-gn.jpg" class="img-responsive" width="20px" height="auto" style="margin-left:auto;margin-right:5px;float:left"></a>&nbsp</div><div class="col-md-6" style="text-align:right;">';
+        var l5='<a href="#" class="resultitemlink">'
+        var l6='Gallery & More Information of '+resultitem.Name+'</a></div></div></div>';
+        l1=l1+nameofplace;
+        l2=l2+'<img class="img-responsive" style="width:100%;height:auto;" src="'+resultitem.picurl+'">';
+        l3=l3+resultitem.smdesc;
+        currentinnerhtml=currentinnerhtml+l1+l2+l3+l4+l5+l6;
+        document.getElementById('listview').innerHTML=currentinnerhtml;
+      }
+    }
+  </script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("body").on('click', '.resultitemlink', function(event) {
+      event.preventDefault();
+      /* Act on the event */
+      var extractarray=$(this).text().split(' ');
+      var nameofplace=extractarray[extractarray.length-1];
+      var key;
+      for (var i = 0; i < list1.length; i++) {
+        if(list1[i].Name==nameofplace)
+          key=list1[i];
+      }
+      var l1='<div class="container well" style="margin-top:5px;max-width:80vw;text-align:center;"><h1 style="margin-top:2px;margin-bottom:20px;">'+nameofplace+'<h1>';
+      var l2='<div class="wrapper" style="background-color:#f5f5f5"><div class="row" style="">';
+      var l3='<div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="images/pic1.jpg"></div><div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="images/pic2.jpg"></div><div class="col-md-4"><img style="width:100%;height:auto;max-width:30vw;max-height:16.9vw;margin-bottom:5px;margin-left:auto;margin-right:auto;" class="img-responsive overlayimg" src="images/pic3.jpg"></div>';
+      var l4='</div>'
+      var l5='<div id="bigdesc" style="margin-top:10px;text-align:center;"class="row"><div class="col-md-12" style="text-align:center;color:red;font-family:cursive;"';
+      var l6='<p>Big Description</p></div></div>';
+      var l7='</div></div>';
+      document.getElementById('overlay').innerHTML=l1+l2+l3+l4+l5+l6+l7;
+      console.log(key);
+      on();
+
+    });
+  });
+function on() {
+      document.getElementById("overlay").style.display = "block";
+    }
+
+    function off() {
+      document.getElementById("overlay").style.display = "none";
+    }
+    function search(){
+      var locval=document.getElementById('locsearch').value;
+      var url="search.html?location="+locval;
+      location.replace(url);
+    }
+  </script>
+  </body>
+</html>

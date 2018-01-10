@@ -67,7 +67,7 @@
               </ul>
               <!--right align -->
               <ul class="nav navbar-right">
-                <li class="navitem" style="font-size:23px;"><a href="#"><strong>&#x1F50D;</strong></a></li>
+                <li class="navitem" style="font-size:23px;"><a href="#"><img src="images/search/if_magnifyingglass_51535.png" height="25px" width="25px"></a></li>
               </ul>
           </div>
       </div>
@@ -310,10 +310,10 @@
     </div>
     <div id="footerdiv">
       <form>
-        <input type="text" class="textbox" placeholder="Keywords..">
-        <input type="text" class="textbox" placeholder="Location">
-        <input type="text" class="textbox" placeholder="Filters..">
-        <input title="Search" value="&#128269;" type="submit" class="button">
+        <input id="kwsearch"type="text" class="textbox" placeholder="Keywords..">
+        <input id="locsearch"type="text" class="textbox" placeholder="Location">
+        <input id="fsearch" type="text" class="textbox" placeholder="Filters..">
+        <input title="Search" value="&#128269;" type="" class="button" onclick="search()">
       </form>
     </div>
   </div>
@@ -326,5 +326,12 @@
     }
   </script>
   <script src="app.js"></script>
+  <script type="text/javascript">
+    function search(){
+      var locval=document.getElementById('locsearch').value;
+      var url="search.html?location="+locval;
+      location.replace(url);
+    }
+  </script>
   </body>
 </html>
