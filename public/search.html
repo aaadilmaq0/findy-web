@@ -110,7 +110,7 @@
     };
     firebase.initializeApp(config);
     var list1 = [];
-    var dbref=firebase.database().ref('base');
+    var dbref=firebase.database().ref('base2');
     dbref.on('value', gotData, errData);
     function gotData(data){
       //console.log(data.val());
@@ -120,9 +120,9 @@
       for (var i = 0; i < keys.length; i++){
         var key=keys[i];
         //console.log(key);
-        var city=x[key].City;
+        var state=x[key].State;
         var Category=x[key].Category;
-        if((city==p))
+        if((state==p))
           list1.push(x[key]);
       }
       for (var i = 0; i < list1.length; i++) {
@@ -189,6 +189,10 @@ function on() {
       var url="search.html?location="+locval;
       location.replace(url);
     }
+    $('#sicon').click(function(event) {
+      /* Act on the event */
+      $('#kwsearch').focus();
+    });
   </script>
   </body>
 </html>

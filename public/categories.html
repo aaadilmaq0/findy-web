@@ -87,10 +87,10 @@
         </a>
       </div>
       <div class="col-md-4">
-        <a href="#" onclick="gotocategory('Food')">
+        <a href="#" onclick="gotocategory('Restaurants')">
           <img class="dt img-responsive" src="http://www.rowhanisaffron.com/wp-content/uploads/beef-and-vegetable-soup.jpg" alt="">
           <div class="overlay">
-            <div class="text"><strong>Food</strong></div>
+            <div class="text"><strong>Restaurants</strong></div>
           </div>
         </a>
       </div>
@@ -137,8 +137,10 @@
     function gotocategory(str){
       var parameters = location.search.substring(1).split("&");
       var temp= parameters[0].split("=");
-      var p=temp[1];
-      var url="destinations/destination.html?category="+str+"&place="+p;
+      var locality=temp[1];
+      temp=parameters[1].split("=");
+      var state=temp[1];
+      var url="destinations/destination.html?locality="+locality+"&state="+state+"&category="+str;
       location.replace(url);
     }
   </script>

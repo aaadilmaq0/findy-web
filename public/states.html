@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>findy</title>
+    <link rel="stylesheet" href="mainstyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase-firestore.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body style="background-color:#101010;">
+    <header id="header">
+      <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+          <!-- Logo -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand">
+                findy
+              </a>
+          </div>
+          <!-- Menu Items -->
+          <div class="collapse navbar-collapse" id="mainNavBar">
+              <ul class="nav navbar-nav">
+                <li class="navitem active"><a href="index.html"><strong>Home</strong></a></li>
+                <li class="navitem"><a href="#"><strong>About</strong></a></li>
+                <li class="navitem"><a href="#"><strong>Contact</strong></a></li>
+                <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Quick Places<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="states.html?place=Attika">Attika</a></li>
+                            <li><a href="states.html?place=Peloponnese">Peloponnese</a></li>
+                            <li><a href="states.html?place=WesternGreece">Western Greece</a></li>
+                            <li><a href="states.html?place=IonianIslands">Ionian Islands</a></li>
+                            <li><a href="states.html?place=Epirus">Epirus</a></li>
+                            <li><a href="states.html?place=WesternMacedonia">Western Macedonia</a></li>
+                            <li><a href="states.html?place=CentralMacedonia">Centra lMacedonia</a></li>
+                            <li><a href="states.html?place=EasternMacedoniaThrace">Eastern Macedonia & Thrace</a></li>
+                            <li><a href="states.html?place=CentralGreece">Central Greece</a></li>
+                            <li><a href="states.html?place=NorthAegean">North Aegean</a></li>
+                            <li><a href="states.html?place=Cyclades">Cyclades</a></li>
+                            <li><a href="states.html?place=Dodecannese">Dodecannese</a></li>
+                            <li><a href="states.html?place=Crete">Crete</a></li>
+                            <li><a href="states.html?place=Thessalia">Thessalia</a></li>
+                        </ul>
+                </li>
+                <li class="navitem"><a href="#"><strong>FAQs</strong></a></li>
+              </ul>
+              <!--right align -->
+              <ul class="nav navbar-right">
+                <li id="sicon"class="navitem" style="font-size:23px;"><a href="#"><img src="images/search/if_magnifyingglass_51535.png" height="25px" width="25px"></a></li>
+              </ul>
+          </div>
+      </div>
+    </nav>
+  </header>
+<!-- MAIN WEBPAGE STARTRS -->
+<!--  <div class="row wrapper logodiv" id="logo">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6 container-fluid" id="logodiv">
+      <img id="logoimg" class="img-responsive"src="https://firebasestorage.googleapis.com/v0/b/findy-b69e4.appspot.com/o/logo%2Ff-white-square.png?alt=media&token=c5087f56-6447-4db9-8998-2289e2890e5b" alt="" onclick="startClick()">
+    </div>
+    <div class="col-md-3">
+
+    </div>
+  </div>-->
+  <div id="mainweb" class="wrapper container-fluid">
+    <div class="row destinations" id="insertdata">
+
+    </div>
+  </div>
+  <div id="footerdiv">
+    <form>
+      <input id="kwsearch"type="text" class="textbox" placeholder="Keywords..">
+      <input id="locsearch"type="text" class="textbox" placeholder="Location">
+      <input id="fsearch" type="text" class="textbox" placeholder="Filters..">
+      <input title="Search" value="&#128269;" type="" class="button" onclick="search()">
+    </form>
+  </div>
+    <script>
+    function startClick(){
+      var fromTop=$('#mainweb').offset().top-40;
+      $('html, body').animate({
+          scrollTop: fromTop
+      }, 1000);
+    }
+  </script>
+  <script type="text/javascript">
+    $('#sicon').click(function(event) {
+      /* Act on the event */
+      $('#kwsearch').focus();
+    });
+    function search(){
+      var locval=document.getElementById('locsearch').value;
+      var url="search.html?location="+locval;
+      location.replace(url);
+    }
+  </script>
+  <script type="text/javascript">
+    var list1=[];
+    var config = {
+      apiKey: "AIzaSyALIzNOAKDQldh_Lu8j0FxMMF30teazWqk",
+      authDomain: "findy-b69e4.firebaseapp.com",
+      databaseURL: "https://findy-b69e4.firebaseio.com",
+      projectId: "findy-b69e4",
+      storageBucket: "findy-b69e4.appspot.com",
+      messagingSenderId: "227043781907"
+    };
+    firebase.initializeApp(config);
+
+    var parameters = location.search.substring(1).split("&");
+    var temp= parameters[0].split("=");
+    var locality=temp[1];
+    var dbref=firebase.database().ref('states');
+    dbref.on('value', gotData, errData);
+    function gotData(data){
+      var x=data.val();
+      var keys=Object.keys(x);
+      //console.log(keys);
+      for (var i = 0; i < keys.length; i++){
+        var key=keys[i];
+        //console.log(key);
+        var Locality=x[key].locality;
+        if(Locality==locality)
+          list1.push(x[key]);
+      }
+      for (var i = 0; i < list1.length; i++) {
+        console.log(list1[i]);
+      }
+      show();
+    }
+    function errData(err){
+        console.log(err);
+    }
+    /*<div class="col-md-4">
+      <a href="states.html?place=Peloponnese">
+        <img class="dt img-responsive" src="pics/Peloponnese/Lakonia.jpg" alt="Peloponnese">
+        <div class="overlay">
+          <div class="text"><strong>P E L O P O N N E S E</strong></div>
+        </div>
+      </a>
+    </div>*/
+    var currentinnerhtml=document.getElementById('insertdata').innerHTML;
+    function show(){
+      for (var i = 0; i < list1.length; i++) {
+        var resultitem=list1[i];
+        var l1='<div class="col-md-4"><a href="categories.html?locality='+locality+'&state=';
+        var l2='<img class="dt img-responsive" src="';
+        var l3='<div class="overlay"><div class="text"><strong>';
+        var l4='</div></div></a></div>';
+        l1=l1+resultitem.state+'">';
+        l2=l2+resultitem.picurl+'">';
+        l3=l3+resultitem.state+'</strong>';
+        currentinnerhtml=currentinnerhtml+l1+l2+l3+l4;
+        document.getElementById('insertdata').innerHTML=currentinnerhtml;
+      }
+    }
+    //var url="destinations/destination.html?category="+str+"&place="+p;
+    //location.replace(url);
+  </script>
+  </body>
+</html>
